@@ -1,0 +1,56 @@
+{
+  // DESKTOP
+	"responsive-layout.desktop#home-products-slider": {
+		"children": ["rich-text#home-products-slider",
+			"list-context.product-list#home-products-slider"]
+	},
+	"rich-text#home-products-slider": {
+		"props": {
+			"text": "## Nossos produtos",
+			"textAlignment": "CENTER",
+			"textPosition": "CENTER",
+			"blockClass": "slider-title"
+		}
+	},
+  // MOBILE
+	"responsive-layout.mobile#home-products-slider": {
+		"children": ["list-context.product-list#home-products-slider"]
+	},
+
+  // UNIVERSAL
+	"list-context.product-list#home-products-slider": {
+		"blocks": ["product-summary.shelf#home-products-slider"],
+		"children": ["slider-layout#home-products-slider"]
+	},
+
+	"product-summary.shelf#home-products-slider": {
+		"children": [
+			"product-summary-name",
+			"product-summary-image",
+			"product-summary-price",
+			"add-to-cart-button#home-products-slider"
+		],
+		"props": {
+			"blockClass": "home-slider"
+		}
+	},
+
+	"add-to-cart-button#home-products-slider": {
+		"props": {
+			"text": "Buy now"
+		}
+	},
+
+	"slider-layout#home-products-slider": {
+		"props": {
+			"itemsPerPage": {
+				"desktop": 4,
+				"tablet": 2,
+				"phone": 1
+			},
+			"showNavigationArrows": "desktopOnly",
+			"showPaginationDots": "never",
+			"blockClass": "home-slider"
+		}
+	}
+}

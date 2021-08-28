@@ -1,0 +1,90 @@
+{
+  "vtex.menu@2.x:menu#footer-desktop": {
+    "props": {
+      "blockClass": "footer-menu"
+    },
+    "children": [
+      "menu-item#about-us",
+      "menu-item#privacidade",
+      "menu-item#termos",
+      "menu-item#cookies"
+    ]
+  },
+
+  "menu-item#about-us": {
+    "props": {
+      "id": "menu-item-about-us",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "#",
+        "noFollow": false,
+        "tagTitle": "About us",
+        "text": "About us "
+      }
+    }
+  },
+
+  "menu-item#privacidade": {
+    "props": {
+      "id": "menu-item-privacidade",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "#",
+        "noFollow": false,
+        "tagTitle": "Privacy",
+        "text": "Privacy "
+      }
+    }
+  },
+
+  "menu-item#termos": {
+    "props": {
+      "id": "menu-item-termos-do-site",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "#",
+        "noFollow": false,
+        "tagTitle": "Terms of use",
+        "text": "Terms of use "
+      }
+    }
+  },
+
+  "menu-item#cookies": {
+    "props": {
+      "id": "menu-item-cookies",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "#",
+        "noFollow": false,
+        "tagTitle": "Cookies",
+        "text": "Cookies preferences"
+      }
+    }
+  },
+
+  "vtex.menu@2.x:menu#footer-mobile": {
+    "props": {
+      "orientation": "vertical",
+      "blockClass": "footer-menu"
+    },
+    "children": [
+      "menu-item#about-us",
+      "menu-item#privacidade",
+      "menu-item#termos",
+      "menu-item#cookies"
+    ]
+  }
+}

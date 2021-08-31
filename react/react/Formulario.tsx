@@ -1,9 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, Suspense, lazy } from "react"
 import axios from "axios"
-import { CircularProgress } from "@material-ui/core"
 import classes from "./styles/Formulario.module.css"
 import { LEADS_API_URL } from "./utils/constants"
 import { phoneMask, validateEmail } from "./utils/utils"
+const CircularProgress = lazy(() => import("@material-ui/core/CircularProgress"))
 
 const initial = {
 	nome: "",
@@ -16,10 +16,16 @@ const Formulario: React.FC = () => {
 	const [inputError, setInputError] = useState(initial)
 	const [sending, setSending] = useState(false)
 	const [showSucessMsg, setShowSuccessMsg] = useState(false)
+	const [display, setDisplay] = useState('none')
+
+	useEffect(() => {
+		setDisplay('initial')
+	}, [])
 
 	const { nome, email, telefone } = inputs
 	const errMsg = Object.values(inputError).filter((v) => v)
 
+	// Cannot extract id and value from ChangeEvent<HTMLInputElement>
 	const handleInput = (e: React.ChangeEvent<any>) => {
 		const { id, value } = e.target
 		setInputs((state) => {
@@ -73,7 +79,7 @@ const Formulario: React.FC = () => {
 			})
 	}
 	return (
-		<div style={{ width: "100%", margin: "auto" }}>
+		<div style={{ width: "100%", margin: "auto", display }}>
 			<form className={classes.form} onSubmit={handleSubmit}>
 				{!sending && !showSucessMsg && (
 					<>
@@ -132,10 +138,12 @@ const Formulario: React.FC = () => {
 					</>
 				)}
 				{sending && (
-					<CircularProgress
-						size={60}
-						style={{ color: "#ec7211", margin: "auto" }}
-					/>
+					<Suspense fallback={<div></div>}>
+						<CircularProgress
+							size={60}
+							style={{ color: "#ec7211", margin: "auto" }}
+						/>
+					</Suspense>
 				)}
 				{showSucessMsg && (
 					<p className={classes.successMsg}>
